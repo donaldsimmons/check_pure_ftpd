@@ -108,9 +108,9 @@ def getPasswordFromFile(options):
       # Get password value that matches the given host and user for CLI arguments
       password = config.get(options[0], options[1])
     except ConfigParser.NoSectionError as e:
-      return_response(1, "There are no user credentials stored for this host. Please add the host to the 'ftp_passwords.cfg' file.")
+      return_response(2, "There are no user credentials stored for this host. Please add the host to the 'ftp_passwords.cfg' file.")
     except ConfigParser.NoOptionError as e:
-      return_response(1, "The user was not found in the 'ftp_passwords.cfg' file. Please check that the user is present in the correct host section.")
+      return_response(2, "The user was not found in the 'ftp_passwords.cfg' file. Please check that the user is present in the correct host section.")
     else:
       return password
 
